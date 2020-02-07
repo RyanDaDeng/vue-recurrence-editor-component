@@ -1,4 +1,4 @@
-# vue-scheduler-component
+# vue-recurrence-editor-component
 
 Simple Personal Library - MIT
 
@@ -18,7 +18,7 @@ Simple Personal Library - MIT
 ## Usage
 
 ````vue
-  <scheduler-setting v-model="schedulerSetting" ></scheduler-setting>
+  <recurrence-editor v-model="yourModel" ></recurrence-editor>
  ````
 ## API
 
