@@ -70,6 +70,7 @@
 
 <script>
     export default {
+        name: 'RecurrenceEditor',
         props: ['value'],
         components: {},
         data() {
