@@ -9,8 +9,11 @@ Simple Personal Library - MIT
 
 ## Installation
 
- This is not NPM distribution file, so you just need to copy/paste the file into your project and treat it as a normal vue component.
+ This is not a NPM distribution file, so you just need to copy/paste the file into your project and treat it as a normal vue component.
+ 
  The default CSS class is using bootstrap.
+ 
+ I will make it as a distribution package in the future with more advanced features.
  
 ## Usage
 
