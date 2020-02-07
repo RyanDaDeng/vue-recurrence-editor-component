@@ -4,10 +4,11 @@ Simple Personal Library - MIT
 
 ## DEMO
 
-<img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/31581052959_.pic.jpg" width="250" height="300" />
+### Every Day
+<img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/31581052959_.pic.jpg" width="300" height="400" />
 
-
-<img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/21581052950_.pic.jpg" width="250" height="300" />
+### Every Week
+<img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/21581052950_.pic.jpg" width="300" height="400" />
 
 ## Installation
 
