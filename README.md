@@ -42,3 +42,7 @@ Simple Personal Library - MIT
       repeatAt: '10:00',
   }
 ````
+
+
+### License
+MIT
