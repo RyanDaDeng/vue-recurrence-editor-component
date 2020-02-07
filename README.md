@@ -1,8 +1,13 @@
 # vue-scheduler-component
 
+Simple Personal Library - MIT
 
 ## DEMO
 
+<img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/31581052959_.pic.jpg" width="250" height="300" />
+
+
+<img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/21581052950_.pic.jpg" width="250" height="300" />
 
 ## Installation
 
