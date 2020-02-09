@@ -32,7 +32,7 @@
                 </div>
 
 
-                <input class="form-control" type="time" id="at_time" name="appt" :value="value.repeatAt" required
+                <input class="form-control" id="at_time" name="appt" :value="value.repeatAt" required
                        @change="updateRepeatAt($event)">
             </div>
 
@@ -65,17 +65,20 @@
 
             <!--            </div>-->
         </div>
+
+        <div>
+            {{this.toString}}
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'RecurrenceEditor',
         props: ['value'],
         components: {},
         data() {
             return {
-                _toString: '',
+                toString: '',
                 everyWeekPicker: this.value.repeatOption.everyWeekPicker,
                 endsPicked: this.value.endsPicked,
                 weekDayCheckBox: [
@@ -119,6 +122,41 @@
         },
         computed: {},
         methods: {
+            emitData(data) {
+                console.log(data);
+                this.$emit('input', data);
+                this.toString = this.generateString(data);
+            },
+            generateString(data) {
+                let str = '';
+                switch (data.repeatOption.type) {
+                    case 'every_week':
+
+                        let hash = {
+                            '1': 'Monday',
+                            '2': 'Tuesday',
+                            '3': 'Wednesday',
+                            '4': 'Thursday',
+                            '5': 'Friday',
+                            '6': 'Saturday',
+                            '7': 'Sunday'
+                        };
+
+                        str += 'Weekly from ';
+                        let weekNames = data.repeatOption.everyWeekPicker.map(function (v) {
+                            return hash[v];
+                        }).join(',');
+
+                        str += weekNames;
+                        str += ' at ' + data.repeatAt;
+                        break;
+
+                    case 'every_day':
+                        str = 'Everyday  at ' + data.repeatAt;
+                        break;
+                }
+                return str;
+            },
             updateWeekDayOption(event) {
                 let data = {...this.value};
                 let index = data.repeatOption.everyWeekPicker.indexOf(event.target.value);
@@ -129,43 +167,26 @@
                     data.repeatOption.everyWeekPicker.push(event.target.value);
                 }
                 data.repeatOption.everyWeekPicker.sort()
-                this.$emit('input', data)
+                this.emitData(data);
             },
             updateRepeatAt(event) {
                 let data = {...this.value};
                 data.repeatAt = event.target.value;
-                this.$emit('input', data);
+                this.emitData(data);
             },
             updateRepeatOption(event) {
                 let data = {...this.value};
-
-                switch (event.target.value) {
-                    case 'every_week':
-                        data.repeatOption = {
-                            type: event.target.value,
-                            everyWeekPicker: ['1', '2', '3', '4', '5']
-                        };
-                        this.everyWeekPicker = data.repeatOption.everyWeekPicker;
-                        this.$emit('input', data);
-                        break;
-                    case 'every_day':
-                        data.repeatOption = {
-                            type: event.target.value,
-                        };
-                        this.$emit('input', data);
-                        break;
-                    default:
-                        break;
-                }
+                data.repeatOption.type = event.target.value;
+                this.emitData(data);
             },
             updateEndsPicked(event) {
                 let data = {...this.value};
                 data.endsPicked = event.target.value;
-                this.$emit('input', data);
+                this.emitData(data);
             },
         },
         created() {
-
+            this.toString = this.generateString(this.value);
         },
         mounted() {
         }
@@ -210,7 +231,6 @@
         top: 0;
         width: 28px;
     }
-
 
     .round input[type="checkbox"] {
         visibility: hidden;
