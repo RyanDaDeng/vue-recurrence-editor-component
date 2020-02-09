@@ -4,7 +4,6 @@ Simple Personal Library - MIT
 
 ## DEMO
 
-### Every Day
 <img src="https://github.com/RyanDaDeng/vue-scheduler-component/blob/master/demo_scheduler.gif"/>
 
 ## Installation
